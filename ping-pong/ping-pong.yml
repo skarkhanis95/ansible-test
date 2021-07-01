@@ -1,5 +1,5 @@
 ---
-- main: Test connection to my servers
+- name: Test connection to my servers
   hosts: all
   become: yes
 
