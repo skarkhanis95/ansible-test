@@ -6,3 +6,7 @@
   tasks:
   - name: Ping my servers
     ping: 
+    register: result
+
+  - debug:
+      var: result
