@@ -4,4 +4,6 @@
   become_user: root
   tasks:
     - name: Start vsftpd service
-      state: started
+      service:
+        name: vsftpd
+        state: started
