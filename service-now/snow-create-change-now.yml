@@ -1,8 +1,7 @@
 ---
 - name: Create Change Request in SNOW
-  hosts: all
+  hosts: localhost
   gather_facts: no
-  connection: local
   vars:
     ansible_python_interpreter: /usr/bin/python3
 
