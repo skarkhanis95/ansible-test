@@ -1,0 +1,8 @@
+---
+- name: Install Modules
+  host: localhost
+
+  tasks:
+  - name: Install Pysnow
+    pip:
+      name: pysnow
