@@ -1,6 +1,6 @@
 ---
 - name: Install Modules
-  host: localhost
+  hosts: localhost
 
   tasks:
   - name: Install Pysnow

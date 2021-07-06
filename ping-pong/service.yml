@@ -1,6 +1,6 @@
 ---
 - name: Install Modules
-  host: localhost
+  hosts: localhost
   become: true
 
   tasks:
