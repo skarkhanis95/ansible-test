@@ -1,0 +1,26 @@
+---
+- name: Create Change Request in SNOW
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  tasks:
+  - name: include variables
+    include_vars: change_request_vars.yml
+
+  - name: Create a change Request
+    snow_record:
+      state: present
+      table: change_request
+      username: "{{ sn_username }}"
+      password: "{{ sn_password }}"
+      instance: "{{ sn_instance }}"
+      data:
+        severity: "{{ sn_severity }}"
+        priority: "{{ sn_priority }}"
+        short_description: "This is Test Opened by Anisble"
+    register: new_incident
+  
+  - debug:
+      var: new_incident.record
+
