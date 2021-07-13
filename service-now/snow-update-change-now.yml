@@ -1,0 +1,29 @@
+---
+- name: Create Change Request in SNOW
+  hosts: localhost
+  gather_facts: no
+  vars:
+    ansible_python_interpreter: /bin/python3
+
+  tasks:
+  - name: include variables
+    include_vars: change_request_vars.yml
+
+  - name: Modify a change Request
+    snow_record:
+      state: present
+      table: change_request
+      username: "{{ sn_username }}"
+      password: "{{ sn_password }}"
+      instance: "{{ sn_instance }}"
+      number: CHG0030017
+      data:
+        state: -3
+    register: incident
+  
+  
+  
+  - debug:
+      var: incident.record.state
+      
+
