@@ -24,6 +24,11 @@
 
   - debug:
       var: new_incident.record 
+  
+  - name: Pause for 5 seconds to update ServiceNow
+    pause:
+      seconds: 8
+  
 
   - name: Modify a change Request
     snow_record:
@@ -36,6 +41,7 @@
       data:
         state: -3
     register: incident
+  
   
   
   - debug:
