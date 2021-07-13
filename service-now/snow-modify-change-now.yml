@@ -1,5 +1,5 @@
 ---
-- name: Create Change Request in SNOW
+- name: Modify Change Request in SNOW
   hosts: localhost
   gather_facts: no
   vars:
@@ -9,13 +9,14 @@
   - name: include variables
     include_vars: change_request_vars.yml
 
-  - name: Create a change Request
+  - name: Modify a change Request
     snow_record:
       state: present
       table: change_request
       username: "{{ sn_username }}"
       password: "{{ sn_password }}"
       instance: "{{ sn_instance }}"
+      number: 
       data:
         severity: "{{ sn_severity }}"
         priority: "{{ sn_priority }}"
@@ -23,5 +24,5 @@
     register: new_incident
   
   - debug:
-      var: new_incident.task_effective_number
+      var: new_incident.record
 
