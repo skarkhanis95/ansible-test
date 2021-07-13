@@ -21,8 +21,9 @@
         priority: "{{ sn_priority }}"
         short_description: "This is Test Opened by Anisble"
     register: new_incident
-    set_fact:
-      number: new_incident.record.task_effective_number
+
+  - debug:
+      var: new_incident.record 
 
   - name: Modify a change Request
     snow_record:
@@ -31,7 +32,7 @@
       username: "{{ sn_username }}"
       password: "{{ sn_password }}"
       instance: "{{ sn_instance }}"
-      number: " {{ number }}"
+      number: " {{ new_incident.record.task_effective_number }}"
       data:
         state: -3
     register: incident
@@ -39,4 +40,5 @@
   
   - debug:
       var: incident.record.task_effective_number
+      
 
