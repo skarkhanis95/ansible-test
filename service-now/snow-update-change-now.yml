@@ -16,8 +16,9 @@
       username: "{{ sn_username }}"
       password: "{{ sn_password }}"
       instance: "{{ sn_instance }}"
-      number: CHG0030017
+      number: CHG0030018
       data:
+        assignment_group: "Incident Management"
         state: -3
     register: incident
   

@@ -19,6 +19,7 @@
       data:
         severity: "{{ sn_severity }}"
         priority: "{{ sn_priority }}"
+        assignment_group: "Incident Management"
         short_description: "This is Test Opened by Anisble"
     register: new_incident
   
