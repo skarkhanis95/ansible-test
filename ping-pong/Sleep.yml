@@ -1,6 +1,6 @@
 ---
 - name: Sleep Playbook
-  hosts: all
+  hosts: localhost
   become: yes
   
 
