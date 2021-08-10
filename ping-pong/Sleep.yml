@@ -5,5 +5,10 @@
   
 
   tasks:
-  - pause:
-    minutes: 5
+  - name: Pausing
+    pause:
+      minutes: 5
+  register: stdout
+
+  - debug:
+      var: stdout
