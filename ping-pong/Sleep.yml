@@ -1,14 +1,15 @@
 ---
 - name: Sleep Playbook
   hosts: localhost
-  become: yes
+  gather_facts: no
   
 
   tasks:
-  - name: Pausing
+  - name: Pause the Execution
     pause:
       minutes: 5
-  register: stdout
-
+    register: stdout
+  
   - debug:
       var: stdout
+
