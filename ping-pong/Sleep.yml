@@ -1,0 +1,9 @@
+---
+- name: Sleep Playbook
+  hosts: all
+  become: yes
+  
+
+  tasks:
+  - pause:
+    minutes: 5

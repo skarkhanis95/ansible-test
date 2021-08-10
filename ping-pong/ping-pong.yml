@@ -1,19 +1,13 @@
 ---
+  - name: Test connection to my servers
+    hosts: all
+    become: yes
 
-mount_point:
-  abc
-  123
-  edf
-
-- name: Test connection to my servers
-  hosts: all
-  become: yes
-
-  tasks:
-  - name: Ping my servers
-    ping: mount {mount_point}
+    tasks:
+    - name: Ping my servers
+      ping:
     register: result
-  with_item: {mount_point}
+ 
 
   - debug:
       var: result
